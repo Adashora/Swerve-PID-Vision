@@ -3,6 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
+import com.ctre.phoenix.sensors.CANCoder;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkMax;
@@ -46,7 +47,7 @@ private final LinearFilter desired_drive_Filter = LinearFilter.singlePoleIIR(0,0
 private final RelativeEncoder Drive_encoder; //creating encoders
 private final RelativeEncoder Turn_encoder;
 
-public final CANcoder best_turn;
+public final CANCoder best_turn;
 
 private final Rotation2d Swerve_offset; //offset
 
@@ -57,7 +58,7 @@ Swerve_Module(int module_number, int module_order, int drive_ID, int turn_ID, Ro
      this.module_order = module_order;
      this.Swerve_offset = Swerve_offset;
 
-     this.best_turn = new CANcoder(CanCoderID);
+     this.best_turn = new CANCoder(CanCoderID);
      this.driveMotor = new SparkMax(drive_ID, MotorType.kBrushless);
 
      Drive_encoder = driveMotor.getEncoder();
