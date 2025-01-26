@@ -31,8 +31,8 @@ private final SparkMax turnMotor;
 private final SparkMaxConfig drive_config = new SparkMaxConfig(); //creating configs
 private final SparkMaxConfig turn_config = new SparkMaxConfig();
 
-private final int module_order;
-private final int module_number;
+private final int module_order = 0; // Initialize with a default value
+final int module_number;
 
 private final PIDController turn_controller; //creating PID controllers
 private final PIDController drive_Controller;
@@ -52,10 +52,10 @@ public final CANCoder best_turn;
 private final Rotation2d Swerve_offset; //offset
 
 
-Swerve_Module(int module_number, int module_order, int drive_ID, int turn_ID, Rotation2d Swerve_offset, int CanCoderID, CANcoder best_turn){//add more
+Swerve_Module(int module_number, int drive_ID, int turn_ID, Rotation2d Swerve_offset, int CanCoderID){//add more
 
      this.module_number = module_number;
-     this.module_order = module_order;
+     // this.module_order = module_order; // Remove this line if module_order is not needed
      this.Swerve_offset = Swerve_offset;
 
      this.best_turn = new CANCoder(CanCoderID);

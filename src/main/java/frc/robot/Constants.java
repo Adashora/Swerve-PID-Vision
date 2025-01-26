@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
@@ -28,18 +29,28 @@ public final class Constants {
 
       public static final int drive_ID = 0;
       public static final int turn_ID = 0;
+      public static final int mod0_Cancoder = 0;
+      public static final Rotation2d mod0_CancoderOffset = Rotation2d.fromDegrees(0.0);
 
     }
     public static class mod1{
 
       public static final int drive_ID = 0;
       public static final int turn_ID = 0;
+      public static final int mod1_Cancoder = 0;
+      public static final Rotation2d mod1_CancoderOffset = Rotation2d.fromDegrees(0.0);
+
+
       
     }
     public static class mod2{
 
       public static final int drive_ID = 0;
       public static final int turn_ID = 0;
+      public static final int mod2_Cancoder = 0;
+      public static final Rotation2d mod2_CancoderOffset = Rotation2d.fromDegrees(0.0);
+
+
 
       
     }
@@ -48,6 +59,10 @@ public final class Constants {
 
       public static final int drive_ID = 0;
       public static final int turn_ID = 0;
+      public static final int mod3_Cancoder = 0;
+      public static final Rotation2d mod3_CancoderOffset = Rotation2d.fromDegrees(0.0);
+
+
     }
 
   }
@@ -62,7 +77,7 @@ public final class Constants {
       public static final double Drive_KI = 0.2;
       public static final double Drive_KD = 0.3;
 
-      public static final double Gyro_offset = 0.0;
+      public static double gyro_offset = 0.0;
 
       public static final double driveMotorRatio = 0;
       public static final double turningMotorRatio =0 / 7;
@@ -239,6 +254,9 @@ public final class Constants {
     public static final double ki = 0;
     public static final double kd = 0;
   }
+
+
+
 
 
 }

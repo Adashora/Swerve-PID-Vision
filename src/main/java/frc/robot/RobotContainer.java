@@ -6,10 +6,14 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.Drive;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Swerve_drive;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -19,7 +23,18 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
+  private final Joystick driverL = new Joystick(0);
+    private final Joystick driverR = new Joystick(1);
+
+    private final Joystick operatorL = new Joystick(2);
+    private final Joystick operatorR = new Joystick(3);
+
+    private final JoystickButton resetYawButton = new JoystickButton(driverL, 1);
   // The robot's subsystems and commands are defined here...
+  
+  
+  
+  public final Swerve_drive driveSwerve;
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -27,7 +42,19 @@ public class RobotContainer {
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
+
+  
+  
+  
+  
+  
   public RobotContainer() {
+    this.driveSwerve = new Swerve_drive(driverL, driverR);
+
+    this.driveSwerve.setDefaultCommand(new Drive(driveSwerve, driverL, driverR, 0.0, 1.0, 0.0, false));
+
+
+    
     // Configure the trigger bindings
     configureBindings();
   }
