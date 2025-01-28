@@ -47,22 +47,43 @@ public class Swerve_drive extends SubsystemBase {
   private final Joystick driverR; 
 
 
+  
+  
+  // this code has more aura than matthew on skibidi
+  
   /** Creates a new Swerve_drive. */
   public Swerve_drive(Joystick driverL, Joystick driverR) {
 
     this.dt = new Swerve_Module[] {
-     new Swerve_Module(0, Constants.dt.mod0.drive_ID, Constants.dt.mod0.turn_ID, Constants.dt.mod0.mod0_CancoderOffset, Constants.dt.mod0.mod0_Cancoder),
-     new Swerve_Module(1, Constants.dt.mod1.drive_ID, Constants.dt.mod1.turn_ID, Constants.dt.mod1.mod1_CancoderOffset, Constants.dt.mod1.mod1_Cancoder),
-     new Swerve_Module(2, Constants.dt.mod2.drive_ID, Constants.dt.mod2.turn_ID, Constants.dt.mod2.mod2_CancoderOffset, Constants.dt.mod2.mod2_Cancoder),
-     new Swerve_Module(3, Constants.dt.mod3.drive_ID, Constants.dt.mod3.turn_ID, Constants.dt.mod3.mod3_CancoderOffset, Constants.dt.mod3.mod3_Cancoder)
+     new Swerve_Module
+     (0, 
+     Constants.dt.mod0.drive_ID, 
+     Constants.dt.mod0.turn_ID, 
+     Constants.dt.mod0.mod0_CancoderOffset, 
+     Constants.dt.mod0.mod0_Cancoder),
+     new Swerve_Module(1, 
+     Constants.dt.mod1.drive_ID, 
+     Constants.dt.mod1.turn_ID, 
+     Constants.dt.mod1.mod1_CancoderOffset,       
+     Constants.dt.mod1.mod1_Cancoder),
+     new Swerve_Module(2,
+      Constants.dt.mod2.drive_ID, 
+      Constants.dt.mod2.turn_ID, 
+      Constants.dt.mod2.mod2_CancoderOffset, 
+      Constants.dt.mod2.mod2_Cancoder),
+     new Swerve_Module(3, 
+     Constants.dt.mod3.drive_ID, 
+     Constants.dt.mod3.turn_ID, 
+     Constants.dt.mod3.mod3_CancoderOffset, 
+     Constants.dt.mod3.mod3_Cancoder)
     };
 
-    odometry = new SwerveDriveOdometry(Constants.SwerveMap, getYaw(), 
+    odometry = new SwerveDriveOdometry(Constants.SwerveMap, getYaw(), //uses modules position to calculate robot position
     new SwerveModulePosition[] {dt[0].getposition(), dt[1].getposition(), dt[2].getposition(), dt[3].getposition()
     });
 
     pose_estimator = new SwerveDrivePoseEstimator(Constants.SwerveMap, getYaw(), new SwerveModulePosition[] {dt[0].getposition(),
-      dt[1].getposition(), dt[2].getposition(), dt[3].getposition()}, new Pose2d());
+      dt[1].getposition(), dt[2].getposition(), dt[3].getposition()}, new Pose2d());   //estimaties with vision data (havent added yet)
 
 
 
